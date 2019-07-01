@@ -56,7 +56,7 @@ app.get('/Books/add', (req, res) => {
     } else {
         aux3 = null;
     }
-    const INSERT_NEW_BOOK_QUERY = `INSERT INTO react_sql.Books (tittle, genre1, genre2, genre3, price) VALUES('${tittle}', `+aux1+`, `+aux2+`, `+aux3+`, 11)`
+    const INSERT_NEW_BOOK_QUERY = `INSERT INTO react_sql.Books (tittle, genre1, genre2, genre3, price) VALUES('${tittle}', `+aux1+`, `+aux2+`, `+aux3+`, ${price})`
     console.log(INSERT_NEW_BOOK_QUERY)
     connection.query(INSERT_NEW_BOOK_QUERY, (err, results) =>{
         if(err){
