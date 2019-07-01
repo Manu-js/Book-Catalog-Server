@@ -22,7 +22,7 @@ connection.connect(err => {
 app.use(cors());
 
 app.get("/", (req, res) => {
-    res.send("jaajjaajja");
+    res.send("Hello!");
 });
 app.get("/Books", (req,res) =>{
     connection.query(SELECT_ALL_BOOKS_QUERY, (err, results) => {
@@ -78,7 +78,7 @@ app.get('/Books/delete', (req, res) => {
     })
 })
 app.get('/Books/update', (req, res) => {
-    const{id, tittle, genre1, genre2, genre3} = req.query;
+    const{id, tittle, genre1, genre2, genre3, price} = req.query;
     var aux1, aux2, aux3 = null;
 
     if (genre1 !== undefined){
@@ -97,8 +97,7 @@ app.get('/Books/update', (req, res) => {
         aux3 = null;
     }
     const UPDATE_BOOK_QUERY = `UPDATE react_sql.Books
-    SET tittle = '${tittle}', genre1= `+aux1+`, genre2= `+aux2+`, genre3= `+aux3+` WHERE idBooks = ${id}`;
-    console.log("AWDAWDAWDAWD", UPDATE_BOOK_QUERY)
+    SET tittle = '${tittle}', price = '${price}', genre1= `+aux1+`, genre2= `+aux2+`, genre3= `+aux3+` WHERE idBooks = ${id}`;
     connection.query(UPDATE_BOOK_QUERY, (err, results) =>{
         if(err){
             return res.send(err)
