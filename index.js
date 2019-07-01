@@ -38,7 +38,7 @@ app.get("/Books", (req,res) =>{
 })
 
 app.get('/Books/add', (req, res) => {
-    const{tittle, genre1, genre2, genre3} = req.query;
+    const{tittle, genre1, genre2, genre3, price} = req.query;
     var aux1, aux2, aux3 = null;
 
     if (genre1 !== undefined){
@@ -56,7 +56,7 @@ app.get('/Books/add', (req, res) => {
     } else {
         aux3 = null;
     }
-    const INSERT_NEW_BOOK_QUERY = `INSERT INTO Books (tittle, genre1, genre2, genre3) VALUES('${tittle}', `+aux1+`, `+aux2+`, `+aux3+`)`
+    const INSERT_NEW_BOOK_QUERY = `INSERT INTO react_sql.Books (tittle, genre1, genre2, genre3, price) VALUES('${tittle}', `+aux1+`, `+aux2+`, `+aux3+`, 11)`
     console.log(INSERT_NEW_BOOK_QUERY)
     connection.query(INSERT_NEW_BOOK_QUERY, (err, results) =>{
         if(err){
@@ -77,6 +77,18 @@ app.get('/Books/delete', (req, res) => {
         }
     })
 })
+
+app.get('/Books/deleteAll', (req, res) => {
+    const DELETE_BOOK_QUERY = `TRUNCATE TABLE react_sql.Books`
+    connection.query(DELETE_BOOK_QUERY, (err, results) =>{
+        if(err){
+            return res.send(err)
+        } else {
+            return res.send("Successfully deleted all Book")
+        }
+    })
+})
+
 app.get('/Books/update', (req, res) => {
     const{id, tittle, genre1, genre2, genre3, price} = req.query;
     var aux1, aux2, aux3 = null;
