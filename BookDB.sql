@@ -23,14 +23,14 @@ DROP TABLE IF EXISTS `Books`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `Books` (
-  `idBooks` int(11) NOT NULL,
+  `idBooks` int(11) NOT NULL AUTO_INCREMENT,
   `tittle` varchar(45) DEFAULT NULL,
   `genre1` varchar(45) DEFAULT NULL,
   `genre2` varchar(45) DEFAULT NULL,
   `genre3` varchar(45) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   PRIMARY KEY (`idBooks`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `Books` (
 
 LOCK TABLES `Books` WRITE;
 /*!40000 ALTER TABLE `Books` DISABLE KEYS */;
-INSERT INTO `Books` VALUES (1,'Book 1','Drama','History','Fiction',50),(2,'Book 2','Drama',NULL,NULL,70),(3,'Book 3','Action','Fiction',NULL,30);
+INSERT INTO `Books` VALUES (2,'Book 2','Drama',NULL,NULL,70),(3,'Book 3','Action','Fiction',NULL,30),(4,'book 4','teite',NULL,NULL,123);
 /*!40000 ALTER TABLE `Books` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-01 15:24:11
+-- Dump completed on 2019-07-02 14:13:41
